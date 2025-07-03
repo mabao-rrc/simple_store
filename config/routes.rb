@@ -6,7 +6,7 @@
 
 Rails.application.routes.draw do
   # RESTful routes for products (includes index, show, etc.)
-  resources :products, only: [:index, :show]
+  resources :products, only: [ :index, :show ]
 
   # You can add other routes here as needed
 end
