@@ -1,15 +1,13 @@
+# Name: Marissa Abao
+# Submission Date: July 4, 2025
+# Course: WEBD-3011 Agile Full Stack Web Development
+# Description: U5 - Rails, Faker, and Git Challenge
+# This file defines the routes, including the /products route for listing products.
+
 Rails.application.routes.draw do
-  get "products/index"
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  # Route /products to the products#index action
+  get "/products", to: "products#index"
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
-  get "up" => "rails/health#show", as: :rails_health_check
-
-  # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
-  # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
-  # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
-
-  # Defines the root path route ("/")
-  # root "posts#index"
+  # You can set root if desired:
+  # root "products#index"
 end
