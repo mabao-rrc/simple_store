@@ -25,7 +25,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
     # Add debug info
     puts "DEBUG: Created product ID: #{product.id}"
-    puts "DEBUG: Product exists? #{Product.exists?(product.id)}"  
+    puts "DEBUG: Product exists? #{Product.exists?(product.id)}"
 
     get product_url(product)
     assert(true)
