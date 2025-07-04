@@ -7,30 +7,24 @@
 require "test_helper"
 
 class ProductsControllerTest < ActionDispatch::IntegrationTest
+  # Test the index action renders successfully
   test "should get index" do
-    # Ensure there's a category + product for index (optional but safe)
-    category = Category.create!(name: "Test Category")
-    Product.create!(
-      title: "Test Product",
-      description: "Test Description",
-      price: 9.99,
-      stock_quantity: 10,
-      category: category
-    )
-
     get products_url
     assert_response :success
   end
 
+  # Test the show action renders successfully for an existing product
   test "should get show" do
-    category = Category.create!(name: "Test Category")
-    product = Product.create!(
-      title: "Test Product",
-      description: "Test Description",
-      price: 9.99,
-      stock_quantity: 10,
-      category: category
-    )
+    # Use a fixture or create a product for the test
+    product = products(:one) rescue nil
+    unless product
+      product = Product.create!(
+        title: "Test Product",
+        description: "Test Description",
+        price: 9.99,
+        stock_quantity: 10
+      )
+    end
 
     get product_url(product)
     assert_response :success
